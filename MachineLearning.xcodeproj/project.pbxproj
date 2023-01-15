@@ -13,6 +13,7 @@
 		E88BCDAB29730E760057AE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E88BCDA929730E760057AE88 /* Main.storyboard */; };
 		E88BCDAD29730E770057AE88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E88BCDAC29730E770057AE88 /* Assets.xcassets */; };
 		E88BCDB029730E770057AE88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E88BCDAE29730E770057AE88 /* LaunchScreen.storyboard */; };
+		E8A85B33297437B60077A551 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E8A85B32297437B60077A551 /* MobileNetV2.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E88BCDAC29730E770057AE88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E88BCDAF29730E770057AE88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E88BCDB129730E770057AE88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8A85B32297437B60077A551 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		E88BCDA229730E760057AE88 /* MachineLearning */ = {
 			isa = PBXGroup;
 			children = (
+				E8A85B32297437B60077A551 /* MobileNetV2.mlmodel */,
 				E88BCDB929730E900057AE88 /* SupportingFiles */,
 				E88BCDB829730E860057AE88 /* View */,
 				E88BCDB729730E7D0057AE88 /* Controller */,
@@ -164,6 +167,7 @@
 			files = (
 				E88BCDA829730E760057AE88 /* ViewController.swift in Sources */,
 				E88BCDA429730E760057AE88 /* AppDelegate.swift in Sources */,
+				E8A85B33297437B60077A551 /* MobileNetV2.mlmodel in Sources */,
 				E88BCDA629730E760057AE88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

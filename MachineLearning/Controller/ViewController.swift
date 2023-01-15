@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import CoreML
+import Vision
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate ,UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView : UIImageView!
     @IBOutlet weak var resultLabel : UILabel!
+    var choosenImage = CIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate ,UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true)
+        
+        //CIImage
+        if let ciImage = CIImage(image: imageView.image!){
+            choosenImage = ciImage
+        }
+        
+        //resim seçilir seçilmez fonksiyonu çağıracağız
+        recognizeImage(image: choosenImage)
+    }
+    
+    func recognizeImage(image : CIImage){
+        
     }
     
 }
