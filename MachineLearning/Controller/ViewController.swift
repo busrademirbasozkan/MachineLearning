@@ -42,7 +42,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate ,UINavig
     }
     
     func recognizeImage(image : CIImage){
-        
+        resultLabel.text = "Test"
     }
     
 }
