@@ -10,7 +10,7 @@ import CoreML
 import Vision
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate ,UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var imageView : UIImageView!
     @IBOutlet weak var resultLabel : UILabel!
     var choosenImage = CIImage()
@@ -19,8 +19,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate ,UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
     @IBAction func changeButton(_ sender : Any){
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -42,6 +42,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate ,UINavig
     }
     
     func recognizeImage(image : CIImage){
+        resultLabel.text = "Uploading"
+        //Request
         if let model = try? VNCoreMLModel(for: MobileNetV2().model){
             let request = VNCoreMLRequest(model: model){ (vnrequest , error) in
                 if let results = vnrequest.results as? [VNClassificationObservation]{
@@ -49,13 +51,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate ,UINavig
                         let topResult = results.first
                         DispatchQueue.main.async {
                             let confidenceLevel = (topResult?.confidence ?? 0) * 100
-                            self.resultLabel.text = "\(confidenceLevel)% it's \(topResult?.identifier)"
+                            let rounded = Int(confidenceLevel * 100) / 100
+                            self.resultLabel.text = "\(rounded)% it's \(topResult!.identifier)"
                         }
                     }
                 }
             }
+            //Handler
+            let handler = VNImageRequestHandler(ciImage: image)
+            DispatchQueue.global(qos: .userInteractive).async {
+                do{
+                    try handler.perform([request])
+                }catch{
+                    print("error")
+                }
+            }
         }
+        
     }
     
 }
-
